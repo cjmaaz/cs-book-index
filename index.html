@@ -18156,7 +18156,8 @@ function bookPageRangeOf(rows) {
 }
 
 function descriptionForRows(rows, maxLen) {
-  maxLen = maxLen || 120;
+  // Returns the FULL joined description. The cell uses CSS to wrap text;
+  // there's no character cap. Pass an explicit maxLen to truncate.
   const seen = new Set();
   const titles = [];
   for (const r of rows) {
@@ -18181,7 +18182,9 @@ function descriptionForRows(rows, maxLen) {
     }
   }
   let joined = titles.join(" - ");
-  if (joined.length > maxLen) joined = joined.slice(0, maxLen - 1).replace(/[\s,-]+$/, "") + "...";
+  if (maxLen != null && joined.length > maxLen) {
+    joined = joined.slice(0, maxLen - 1).replace(/[\s,-]+$/, "") + "...";
+  }
   return joined;
 }
 

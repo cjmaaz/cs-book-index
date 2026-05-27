@@ -17880,7 +17880,8 @@ function bookPageRangeOf(rows: EntryTuple[]): string {
   return lo === hi ? `${lo}` : `${lo}-${hi}`;
 }
 
-function descriptionForRows(rows: EntryTuple[], maxLen = 120): string {
+function descriptionForRows(rows: EntryTuple[], maxLen?: number): string {
+  // Returns the FULL joined description. Pass maxLen to truncate.
   const seen = new Set<string>();
   const titles: string[] = [];
   for (const r of rows) {
@@ -17905,7 +17906,9 @@ function descriptionForRows(rows: EntryTuple[], maxLen = 120): string {
     }
   }
   let joined = titles.join(" - ");
-  if (joined.length > maxLen) joined = joined.slice(0, maxLen - 1).replace(/[\s,-]+$/, "") + "...";
+  if (maxLen != null && joined.length > maxLen) {
+    joined = joined.slice(0, maxLen - 1).replace(/[\s,-]+$/, "") + "...";
+  }
   return joined;
 }
 
