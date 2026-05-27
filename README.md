@@ -2,7 +2,7 @@
 
 A reading-order index across 10 core Computer Science textbooks, organised by topic and within each topic ordered by difficulty with practical/lab rows interleaved alongside the matching theory.
 
-**Live site (GitHub Pages):** _link added after the first push to GitHub_
+**Live site (GitHub Pages):** [https://cjmaaz.github.io/cs-book-index/](https://cjmaaz.github.io/cs-book-index/)
 
 ## Books in scope
 
