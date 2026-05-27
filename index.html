@@ -385,6 +385,22 @@
       overflow-wrap: break-word;
       min-width: 0;
     }
+    /* Summary-by-book table inside each topic: at the default 390px phone
+       width, Description was only ~180px and wrapped to many lines. Let
+       the table extend wider than the viewport (it scrolls horizontally
+       inside .topic-summary just like the concept tables below) so
+       Description gets a comfortable wrap width. */
+    .topic-summary table { min-width: 560px; }
+    .topic-summary table th:nth-child(1),
+    .topic-summary table td:nth-child(1) { width: 90px !important; }
+    .topic-summary table th:nth-child(2),
+    .topic-summary table td:nth-child(2) { width: 70px !important; }
+    .topic-summary table th:nth-child(3),
+    .topic-summary table td:nth-child(3) {
+      min-width: 360px;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
   }
   /* Phone portrait */
   @media (max-width: 420px) {
